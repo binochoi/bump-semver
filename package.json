@@ -1,0 +1,71 @@
+{
+  "name": "bump-semver",
+  "version": "0.0.1",
+  "description": "Bump the patch version of any semver field in package.json — version, devVersion, nightlyVersion or any custom key — with a floor field to prevent version regressions across release channels. Zero-dependency CLI and API for CI/CD.",
+  "type": "module",
+  "license": "MIT",
+  "author": "binochoi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binochoi/bump-semver.git"
+  },
+  "homepage": "https://github.com/binochoi/bump-semver#readme",
+  "bugs": {
+    "url": "https://github.com/binochoi/bump-semver/issues"
+  },
+  "keywords": [
+    "semver",
+    "semantic-versioning",
+    "version",
+    "versioning",
+    "version-bump",
+    "bump-version",
+    "bump-patch",
+    "bump",
+    "patch",
+    "package.json",
+    "custom-field",
+    "devVersion",
+    "nightlyVersion",
+    "multi-version",
+    "release-channel",
+    "nightly",
+    "version-floor",
+    "release",
+    "release-automation",
+    "ci",
+    "ci-cd",
+    "github-actions",
+    "monorepo",
+    "cli",
+    "npm-version",
+    "zero-dependency"
+  ],
+  "bin": {
+    "bump-semver": "./dist/cli.mjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "obuild --stub",
+    "build:dist": "obuild",
+    "release": "pnpm build:dist && pnpm publish --ignore-scripts",
+    "clean": "rm -rf dist node_modules .turbo",
+    "lint": "oxlint ./src && tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "obuild": "^0.4.38",
+    "oxlint": "^1.67.0",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  }
+}
